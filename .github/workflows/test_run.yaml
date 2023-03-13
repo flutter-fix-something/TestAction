@@ -1,0 +1,12 @@
+name: 'build-test'
+run-name: 'Test action CaiJingLong/action_test2'
+on: # rebuild any PRs and main branch changes
+  issue_comment:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: CaiJingLong/action_test2@main
+      
