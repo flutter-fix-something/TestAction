@@ -11,6 +11,7 @@ jobs:
     runs-on: ${{ matrix.os }}-latest
     steps:
       - name: Echo the system type
+        shell: bash
         run: |
           if [[ "$OSTYPE" == "linux-gnu"* ]]; then
             echo "Linux"
