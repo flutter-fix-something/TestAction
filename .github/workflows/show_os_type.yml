@@ -5,10 +5,10 @@ on:
 
 jobs:
   echo:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
         os: [windows, macos, ubuntu]
+    runs-on: ${{ matrix.os }}-latest
     steps:
       - name: Echo the system type
         run: |
