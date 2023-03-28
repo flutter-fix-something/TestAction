@@ -1,0 +1,29 @@
+name: Echo system type
+
+on:
+  workflow_dispatch:
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [windows, macos, ubuntu]
+    steps:
+      - name: Echo the system type
+        run: |
+          if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+            echo "Linux"
+          elif [[ "$OSTYPE" == "darwin"* ]]; then
+            echo "macOS"
+          elif [[ "$OSTYPE" == "cygwin" ]]; then
+            echo "Cygwin"
+          elif [[ "$OSTYPE" == "msys" ]]; then
+            echo "Windows MSYS"
+          elif [[ "$OSTYPE" == "win32" ]]; then
+            echo "Windows"
+          elif [[ "$OSTYPE" == "freebsd"* ]]; then
+            echo "FreeBSD"
+          else
+            echo "Unknown"
+          fi
